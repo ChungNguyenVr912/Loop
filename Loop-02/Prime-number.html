@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number = parseInt(+prompt('Nhap so luong so nguyen to can hien thi:'));
+        let count = 1, k ;
+        // if(number == 1){
+        //     document.write(2);
+        // }else{
+        //     document.write(2 + "<br>");
+        //     let checknum = 3;
+        //     while(count < number){
+        //         let check = true;
+        //         for(let i = 2; i < checknum; i++){
+        //             if(checknum % i ==0){
+        //                 check = false;
+        //                 break;
+        //             }
+        //         }
+        //         if(check){
+        //             document.write(checknum + "<br>");
+        //             count++;
+        //         }
+        //         checknum++;
+        //     }
+        // }         
+            
+        
+        if(number == 1){
+            document.write(2);
+        }else if(number <= 4){
+            document.write(2 + "<br>");
+            r357();
+        }else if(number > 4){
+            document.write(2 + "<br>");
+            r357();
+            let checknum = 11;
+            while(count < number){
+                let check = true;
+                for(let i = 3; i <= Math.sqrt(checknum); i += 2){
+                    if(checknum % i == 0){
+                        check = false;
+                        break;
+                    }
+                }
+                if(check){
+                    document.write(checknum + "<br>");
+                    count++;
+                }
+                checknum += 2;
+            }
+        }
+        function r357(){
+                for(k = 3; k <=7; k +=2){
+                document.write(k + "<br>"); 
+            }
+        }
+        
+    </script>
+</body>
+</html>
