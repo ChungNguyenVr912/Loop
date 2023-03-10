@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="init();">
+    <div id="txt">asd</div>
+
+    <!-- <button style="width: 20px; height: 20px;"></button> -->
+    <script>
+    
+        
+        function init(){
+            let wrt= document.getElementById('txt');
+            let i = 1, j = 1;
+            wrt.innerHTML = "";
+            while(i <=10){
+                while(j <= 10){
+                    wrt.innerHTML += " <button style='width: 40px; height: 40px;'>" +i*j+ "</button>"
+                    
+                    j++;
+                }
+                wrt.innerHTML += '<br>'
+                j=1;
+                i++;
+            }
+        }
+    </script>
+</body>
+</html>
