@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="bt1" onclick="PRT1();">BT1</button><br><br>
+    <button id="bt2" onclick="PRT2()">BT2</button><br><br>
+    <button id="bt3" onclick="PRT3()">BT3</button><br><br>
+    <button id="bt4" onclick="PRT4()">BT4</button>
+    <span id="showbt4res"></span><br><br>
+    <button id="bt5" onclick="PRT5()">BT5</button>
+    <span id="showbt5res"></span><br><br>
+    <button id="bt6" onclick="PRT6()">BT6</button>
+    <span id="showbt6res"></span><br><br>
+    <button id="bt7" onclick="PRT7()">BT7</button>
+    <span id="showbt7res"></span><br><br>
+    <button id="bt8" onclick="PRT8()">PLAY</button><br><br>
+
+    <script>
+        
+        function PRT1(){
+            for(let i=1; i <= 100; i++){
+                if(i != 99){
+                    setTimeout(function(){
+                        console.log(i);
+                    },100 * i);
+                }else{
+                    setTimeout(function(){
+                        console.log("Hoan thanh");
+                    },100 * i);
+                }
+            }
+        }
+        
+        // function PRT1(){
+        //     var i = 1;
+        //     var interval = setInterval(function() {
+        //     alert(i);
+        //     i++;
+        //         if (i === 5) {
+        //             clearInterval(interval);
+        //             console.log("Kết thúc");
+        //         }
+        //     }, 1000);
+        // }
+        function PRT2(){
+            let temp = Number(prompt('Nhap nhiet do hien tai:'));
+            while(temp <20 || temp > 100){
+                if(temp < 20){
+                    temp = Number(prompt('Tang nhiet do'));
+                }else{
+                    temp = Number(prompt('Giam nhiet do'));
+                }
+            }
+        }
+
+        function PRT3(){
+            let a = 0, b = 1, c;
+            console.log(a);
+            console.log(b);
+            for(let i = 1; i <= 18; i++){
+                c = a + b;
+                console.log(c)
+                a = b;
+                b = c;
+            }
+        }
+
+        function PRT4(){
+            let a = 0, b = 1, c = 1;
+            while(c%20 != 0){
+                c = a + b;
+                if(c%20 == 0){
+                    document.getElementById('showbt4res').innerHTML = "So dau tien trong day fibonacci chia het cho 20 la: " + c;
+                }
+                a = b;
+                b = c;
+            }
+        }
+
+        function PRT5(){
+            let a = 0, b = 1, c, sum = 1;
+            for(let i = 1; i <= 18; i++){
+                c = a + b;
+                sum += c;
+                a = b;
+                b = c;
+            }
+            document.getElementById('showbt5res').innerHTML = "Tong 20 so dau tien trong fibonacci: " + sum;
+        }
+
+        function PRT6(){
+            let count = 0, i = 1, sum = 0;
+            while(count < 30){
+                i++;
+                if(i%7 == 0){
+                    sum += i;
+                    count++;
+                }
+            }
+            document.getElementById('showbt6res').innerHTML = "Tong 30 so tu nhien dau tien chia het cho 7: " + sum;
+        }
+
+        function PRT7(){
+            for(let i = 1; i <= 100; i++){
+                if(i%3 == 0 && i%5 == 0){
+                    document.getElementById('showbt7res').innerHTML += "FizzBuzz" + "&nbsp;";
+                }else if(i%3 == 0){
+                    document.getElementById('showbt7res').innerHTML += "Fizz" + "&nbsp;";
+                }else if(i%5 == 0){
+                    document.getElementById('showbt7res').innerHTML += "Buzz" + "&nbsp;";
+                }else{
+                    document.getElementById('showbt7res').innerHTML += i + "&nbsp;";
+                }
+            }
+        }
+
+        function PRT8(){
+            let min = Number(prompt('So ban muon doan trong khoang tu min la:'));
+            let max = Number(prompt('Den max la:'));
+            let pick = parseInt(Math.random() * (max - min)) + min;
+            let guest, guestnum, i = 0;
+            while(guestnum != pick && i < 3){
+                guest = prompt('Doan xem so ma toi vua chon la bao nhieu =))');
+                if(guest == null || guest == ""){
+                    break;
+                }
+                guestnum = Number(guest);
+                i++;
+                if(guestnum > pick){
+                    alert('Hay chon mot so nho hon, ban con: ' + (3- i) + ' luot chon');
+                }else if(guestnum < pick){
+                    alert('Hay chon mot so lon hon, ban con: ' + (3- i) + ' luot chon');
+                }else{
+                    alert('Chuc mung, ban doan dung roi!');
+                    break;
+                }
+                
+            }
+            
+        }
+    </script>
+</body>
+</html>
