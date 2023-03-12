@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button style="height: 50px; width: 100px; font-size: 20px;" id="bt1" onclick="PRT01()">Bai 1</button>
+    <em>In day fibonacci</em><br>
+    <button style="height: 50px; width: 100px; font-size: 20px;" id="bt2" onclick="PRT02()">Bai 2</button>
+    <em id="showbt2">Tinh giai thua cua N</em><br>
+    <button style="height: 50px; width: 100px; font-size: 20px;" id="bt3" onclick="PRT03()">Bai 3</button>
+    <em>Show Triangle</em><br>
+    <span id="showbt3" style="font-size: 20px; font-weight: bold;"></span>
+    <button style="height: 50px; width: 100px; font-size: 20px;" id="bt4" onclick="PRT04()">Bai 4</button>
+    <em>Show rectangle</em><br>
+    <span id="showbt4" style="font-size: 20px; font-weight: bold;"></span>
+    <button style="height: 50px; width: 100px; font-size: 20px;" id="bt5" onclick="PRT05()">Bai 5</button>
+    <em id="showbt5">Tinh lai ngan hang</em><br>
+    <button style="height: 50px; width: 100px; font-size: 20px;" id="bt6" onclick="PRT06()">Bai 6</button><br>
+    <em id="showheart">Print heart</em>
+
+    <script>
+        function PRT01(){
+            let count = Number(prompt('Nhap so luong so trong fibonacci can hien thi:'));
+            if(count == 1){
+                console.log(0);
+            }else if(count == 2){
+                console.log(0);
+                console.log(1);
+            }else if(count > 2){
+                console.log(0);
+                console.log(1);
+                let a = 0, b = 1, c;
+                for(let i = 1; i <= count - 2; i++){
+                    c = a + b;
+                    console.log(c);
+                    a = b;
+                    b = c;
+                }
+
+            }
+        }
+
+        function PRT02(){
+            let n = Number(prompt('Nhap vao so nguyen duong N'));
+            if(n == 0){
+                document.getElementById('showbt2').innerHTML = n + "! = 1";
+            }else if(n > 0){
+                let result = 1;
+                for(let i = 1; i <= n; i++){
+                    result *= i;
+                }
+                document.getElementById('showbt2').innerHTML = n + "! = " + result;
+            }
+        }
+
+        function PRT03(){
+            let i = 1, j;
+            let showtriangle = document.getElementById('showbt3');
+            showtriangle.innerHTML = "";
+            for(i = 1; i <= 5; i++){
+                for(j = 1; j <= i; j++){
+                    showtriangle.innerHTML = showtriangle.innerHTML + "*";
+                }
+                showtriangle.innerHTML = showtriangle.innerHTML + "<br>";
+            }
+            showtriangle.innerHTML = showtriangle.innerHTML + "<br>";
+
+            for(i = 1; i <= 5; i++){
+                for(j = 5; j >= i; j--){
+                    showtriangle.innerHTML = showtriangle.innerHTML + "*";
+                }
+                showtriangle.innerHTML = showtriangle.innerHTML + "<br>";
+            }
+            showtriangle.innerHTML = showtriangle.innerHTML + "<br>";
+
+            for(i = 1; i <= 5; i++){
+                for(j = 4; j >= i; j--){
+                    showtriangle.innerHTML = showtriangle.innerHTML + "&nbsp;&nbsp;";
+                }
+                for(j = 1; j <= i; j++){
+                    showtriangle.innerHTML = showtriangle.innerHTML + "*";
+                }
+                showtriangle.innerHTML = showtriangle.innerHTML + "<br>";
+            }
+            showtriangle.innerHTML = showtriangle.innerHTML + "<br>";
+
+            for(i = 1; i <= 5; i++){
+                for(j = 1; j < i; j++){
+                    showtriangle.innerHTML = showtriangle.innerHTML + "&nbsp;&nbsp;";
+                }
+                for(j = 5; j >= i; j--){
+                    showtriangle.innerHTML = showtriangle.innerHTML + "*";
+                }
+                showtriangle.innerHTML = showtriangle.innerHTML + "<br>";
+            }
+        }
+
+        function PRT04(){
+            let rectwidth = parseInt(prompt('Input rectangle width:'));
+            let rectheight = parseInt(prompt('Input rectangle height:'));
+            let rectshow = document.getElementById('showbt4');
+            rectshow.innerHTML = "";
+            let i, j;
+            for(let i = 1; i <= rectwidth; i++){
+                rectshow.innerHTML = rectshow.innerHTML + '*';
+            }
+            rectshow.innerHTML = rectshow.innerHTML + '<br>';
+            for(j = 1; j <= rectheight - 2; j ++){
+                rectshow.innerHTML = rectshow.innerHTML + '*';
+                for(i = 1; i <= rectwidth -2; i++){
+                    rectshow.innerHTML = rectshow.innerHTML + '&nbsp;&nbsp;';
+                }
+                rectshow.innerHTML = rectshow.innerHTML + '* <br>';
+            }
+            for(let i = 1; i <= rectwidth; i++){
+                rectshow.innerHTML = rectshow.innerHTML + '*';
+            }
+            rectshow.innerHTML = rectshow.innerHTML + '<br>';
+        }
+
+        function PRT05(){
+            let money = Number(prompt('So tien gui'))
+            let interest = Number(prompt('Lai hang thang (%)'));
+            let month = parseInt(prompt('So thang gui'));
+            for(let i = 1; i <= month; i++){
+                money = money + money*interest/100;
+            }
+            money = parseInt(money);
+            document.getElementById('showbt5').innerHTML = "So tien nhan duoc sau " + month + " thang la: " + money;    
+        }
+
+        function PRT06(){
+            let radius = parseInt(prompt('Input radius'));
+            heart = document.getElementById('showheart');
+            heart.innerHTML = "";
+            let width = radius, row = radius;
+            while(row >= 1){
+                width = radius - parseInt(Math.cos(Math.asin(row/radius)) * radius);
+                for(let i = 1; i <= width; i++){
+                    heart.innerHTML = heart.innerHTML + "*";
+                }
+                for(let i = radius; i > width + 1; i--){
+                    heart.innerHTML = heart.innerHTML + "&nbsp;&nbsp;";
+                }
+                for(let i = radius; i > width + 1; i--){
+                    heart.innerHTML = heart.innerHTML + "&nbsp;&nbsp;";
+                }
+                for(let i = 1; i <= width; i++){    
+                    heart.innerHTML = heart.innerHTML + "*";
+                }
+                heart.innerHTML = heart.innerHTML + "<br>";
+                row--;
+                row--;
+            }
+            
+        }
+    </script>
+</body>
+</html>
