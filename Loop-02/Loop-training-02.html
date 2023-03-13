@@ -138,24 +138,63 @@
             heart = document.getElementById('showheart');
             heart.innerHTML = "";
             let width = radius, row = radius;
-            while(row >= 1){
-                width = radius - parseInt(Math.cos(Math.asin(row/radius)) * radius);
+            while(width > 0){
+                width = radius - parseInt(Math.round(Math.cos(Math.asin(row/radius)) * radius));
+                heart.innerHTML = heart.innerHTML + "*";
                 for(let i = 1; i <= width; i++){
                     heart.innerHTML = heart.innerHTML + "*";
                 }
-                for(let i = radius; i > width + 1; i--){
+                for(let i = radius; i > width; i--){
                     heart.innerHTML = heart.innerHTML + "&nbsp;&nbsp;";
                 }
-                for(let i = radius; i > width + 1; i--){
+                for(let i = radius; i > width; i--){
                     heart.innerHTML = heart.innerHTML + "&nbsp;&nbsp;";
                 }
                 for(let i = 1; i <= width; i++){    
                     heart.innerHTML = heart.innerHTML + "*";
                 }
+                // heart.innerHTML = heart.innerHTML + "*";
+
+                for(let i = 1; i <= width; i++){
+                    heart.innerHTML = heart.innerHTML + "*";
+                }
+                for(let i = radius; i > width; i--){
+                    heart.innerHTML = heart.innerHTML + "&nbsp;&nbsp;";
+                }
+                for(let i = radius; i > width; i--){
+                    heart.innerHTML = heart.innerHTML + "&nbsp;&nbsp;";
+                }
+                for(let i = 1; i <= width; i++){    
+                    heart.innerHTML = heart.innerHTML + "*";
+                }
+                heart.innerHTML = heart.innerHTML + "*";
                 heart.innerHTML = heart.innerHTML + "<br>";
                 row--;
                 row--;
             }
+            radius = radius*2;
+            width = radius; row = 0;
+
+            do{
+                width = radius - parseInt(Math.round(Math.cos(Math.asin(row/radius)) * radius));
+                for(let i = 0; i <= width; i++){
+                    heart.innerHTML = heart.innerHTML + "*";
+                }
+                for(let i = radius; i > width; i--){
+                    heart.innerHTML = heart.innerHTML + "&nbsp;&nbsp;";
+                }
+                
+                for(let i = radius; i > width; i--){
+                    heart.innerHTML = heart.innerHTML + "&nbsp;&nbsp;";
+                }
+                for(let i = 0; i <= width; i++){    
+                    heart.innerHTML = heart.innerHTML + "*";
+                }
+                
+                heart.innerHTML = heart.innerHTML + "<br>";
+                row++;
+                // row++;
+            }while(row++ <= radius)
             
         }
     </script>
